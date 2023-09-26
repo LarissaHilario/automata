@@ -29,6 +29,9 @@ for (let i = 'F'.charCodeAt(0); i <= 'K'.charCodeAt(0); i++) {
   const symbol = String.fromCharCode(i);
   console.log( automaton.transitions.q1[symbol])
   automaton.transitions.q1[symbol] = 'q2';
+  const lowercaseSymbol = symbol.toLowerCase();
+  automaton.transitions.q1[lowercaseSymbol] = 'q2';
+ 
 }
 
 //modificar para a-z
@@ -37,8 +40,15 @@ for (let i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
   const symbol = String.fromCharCode(i);
   automaton.transitions.q2[symbol] = 'q3';
   automaton.transitions.q8[symbol] = 'q9';
+  const lowercaseSymbol = symbol.toLowerCase();
+  automaton.transitions.q2[lowercaseSymbol] = 'q3';
+  automaton.transitions.q8[lowercaseSymbol] = 'q9';
 }
-
+automaton.transitions.q2['Ñ'] = 'q3';
+automaton.transitions.q8['Ñ'] = 'q9';
+automaton.transitions.q2['ñ'] = 'q3';
+automaton.transitions.q8['ñ'] = 'q9';
+automaton.transitions.q0['d'] = 'q1';
 //modificar para 0-9
 
 for (let i = 0; i <= 9; i++) {
